@@ -1,8 +1,8 @@
 # Official gdx2d website
 
-This is the source code of the [hevs-isi/gdx2d](https://github.com/hevs-isi/gdx2d) website available online at https://hevs-isi.github.io/gdx2d/.
+This is the source code of the [ISC-HEI/gdx2d](https://github.com/ISC-HEI/gdx2d) website available online at https://ISC-HEI.github.io/gdx2d/.
 
-The code source of the gdx2d project is available in the [hevs-isi/gdx2d](https://github.com/hevs-isi/gdx2d) repository.
+The code source of the gdx2d project is available in the [ISC-HEI/gdx2d](https://github.com/ISC-HEI/gdx2d) repository.
 
 ## Jekyll
 
