@@ -41,8 +41,8 @@ All notable changes to this project are documented in this file.
 - New DemoSelector
 - HelloWorld projects available for students
 
-[1.2.1]: https://github.com/hevs-isi/gdx2d/releases/tag/v1.2.1
-[1.2.0]: https://github.com/hevs-isi/gdx2d/releases/tag/v1.2.0
-[1.1.1]: https://github.com/hevs-isi/gdx2d/releases/tag/v1.1.1
-[1.1.0]: https://github.com/hevs-isi/gdx2d/releases/tag/v1.1.0
-[1.0.0]: https://github.com/hevs-isi/gdx2d/releases/tag/v1.0.0
+[1.2.1]: https://github.com/ISC-HEI/gdx2d/releases/tag/v1.2.1
+[1.2.0]: https://github.com/ISC-HEI/gdx2d/releases/tag/v1.2.0
+[1.1.1]: https://github.com/ISC-HEI/gdx2d/releases/tag/v1.1.1
+[1.1.0]: https://github.com/ISC-HEI/gdx2d/releases/tag/v1.1.0
+[1.0.0]: https://github.com/ISC-HEI/gdx2d/releases/tag/v1.0.0

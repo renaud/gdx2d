@@ -5,7 +5,7 @@
 # Publish the gdx2d API Javadoc generated using Maven
 if [ "$TRAVIS_REPO_SLUG" == "hevs-isi/gdx2d" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ]
 then
-  echo -e "Publishing latest javadoc using ('$TRAVIS_JDK_VERSION') to 'https://hevs-isi.github.io/gdx2d/javadoc/latest/'\n"
+  echo -e "Publishing latest javadoc using ('$TRAVIS_JDK_VERSION') to 'https://ISC-HEI.github.io/gdx2d/javadoc/latest/'\n"
 
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"

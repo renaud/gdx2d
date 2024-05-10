@@ -1,6 +1,6 @@
 # Contributing
 
-This is an open source project. Contributions via [pull request](https://github.com/hevs-isi/gdx2d/pulls), and [bug reports](https://github.com/hevs-isi/gdx2d/issues) are welcome! Please submit your pull request to the `develop` branch and use the GitHub issue tracker to report issues.
+This is an open source project. Contributions via [pull request](https://github.com/ISC-HEI/gdx2d/pulls), and [bug reports](https://github.com/ISC-HEI/gdx2d/issues) are welcome! Please submit your pull request to the `develop` branch and use the GitHub issue tracker to report issues.
 
 ## Intellij import
 
@@ -37,10 +37,10 @@ It is better to just run some maven commands in the shell to get a better insigh
 
 ## Coding style
 
-If you work on the gdx2d code, we require you to use the [Eclipse code formatter](https://github.com/hevs-isi/gdx2d/blob/master/gdx2d-formatter.xml) located in the root directory of the repository.
+If you work on the gdx2d code, we require you to use the [Eclipse code formatter](https://github.com/ISC-HEI/gdx2d/blob/master/gdx2d-formatter.xml) located in the root directory of the repository.
 If you are using IntelliJ IDEA, [see this article](http://blog.jetbrains.com/idea/2014/01/intellij-idea-13-importing-code-formatter-settings-from-eclipse/) to import and use the Eclipse code formatter.
 
-Please do use tabs, no spaces! Encoding of files should be defaulted to UTF-8. An [editor configuration file](https://github.com/hevs-isi/gdx2d/blob/master/.editorconfig) is also available.
+Please do use tabs, no spaces! Encoding of files should be defaulted to UTF-8. An [editor configuration file](https://github.com/ISC-HEI/gdx2d/blob/master/.editorconfig) is also available.
 
 ## Java -> Kotlin
 

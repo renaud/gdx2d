@@ -1,7 +1,7 @@
 # gdx2d desktop demos
 
 This project provides several demonstration programs and code examples made using the gdx2d library.
-All the demos are destined to be run on desktop. A short video demonstrates the capabilities of the gdx2d library, [have a look at it here](https://youtu.be/eoVrifa1Xd0). The Javadoc of the gdx2d library [is available online](https://hevs-isi.github.io/gdx2d/javadoc/index.html).
+All the demos are destined to be run on desktop. A short video demonstrates the capabilities of the gdx2d library, [have a look at it here](https://youtu.be/eoVrifa1Xd0). The Javadoc of the gdx2d library [is available online](https://ISC-HEI.github.io/gdx2d/javadoc/index.html).
 
 ## How to run ?
 
