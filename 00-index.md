@@ -34,6 +34,9 @@ It is multi-platform so that you can run your code on desktop computers (running
 
 Using the framework, the following code displays a shrinking/growing circle running smoothly:
 
+{% tabs demosimple %}
+
+{% tab demosimple java %}
 {% highlight java %}
 package hevs.gdx2d.demos.simple;
 
@@ -85,7 +88,61 @@ public class DemoSimpleAnimation extends PortableApplication {
     }
 }
 {% endhighlight %}
+{% endtab %}
 
+{% tab demosimple scala %}
+{% highlight scala %}
+
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
+import ch.hevs.gdx2d.lib.GdxGraphics
+import ch.hevs.gdx2d.desktop.PortableApplication
+
+/**
+ * A very simple demonstration on how to display something animated with the library
+ *
+ * @author Pierre-André Mudry (mui)
+ * @author Steve Devènes (dst)
+ * @version 1.0
+ */
+class DemoSimpleAnimation() extends PortableApplication {
+  var radius = 5
+  var speed = 1
+  var screenHeight, screenWidth = 0
+
+  override def onInit(): Unit = {
+    // Sets the window title
+    setTitle("Simple demo, mui 2013")
+
+    screenHeight = Gdx.graphics.getHeight
+    screenWidth = Gdx.graphics.getWidth
+  }
+
+  override def onGraphicRender(g: GdxGraphics): Unit = {
+    // Clears the screen
+    g.clear()
+    g.drawAntiAliasedCircle(screenWidth / 2, screenHeight / 2, radius, Color.BLUE)
+
+    // If reaching max or min size, invert the growing direction
+    if (radius >= 100 || radius <= 3) {
+      speed *= -1
+    }
+
+    // Modify the radius
+    radius += speed
+
+    g.drawSchoolLogo()
+  }
+}
+
+object DemoSimpleAnimation extends App{
+    new DemoSimpleAnimation()
+}
+{% endhighlight %}
+
+{% endtab %}
+
+{% endtabs %}
 ## Who did this and why?
 It was developed for the [inf1 course](http://inf1.begincoding.net) taught at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. The list of contributors is [available here](https://github.com/ISC-HEI/gdx2d/graphs/contributors).
 

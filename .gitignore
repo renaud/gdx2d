@@ -36,3 +36,4 @@ nbproject
 # grunt-html-validation
 validation-status.json
 validation-report.json
+Gemfile.lock
