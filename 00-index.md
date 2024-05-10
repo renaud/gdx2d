@@ -27,7 +27,7 @@ The advantage of using gdx2d is that you can develop your code in Java on your s
 The library itself is a wrapper around a very nice library called [libGDX](https://libgdx.badlogicgames.com/) which provides almost everything to the library. The current project version is based on libGDX version `1.5.6`.
 
 ## Documentation
-The Javadoc API of this library can be found [here](https://hevs-isi.github.io/gdx2d/javadoc/).
+The Javadoc API of this library can be found [here](https://isc-hei.github.io/gdx2d/javadoc/).
 
 ## What do I get?
 It is multi-platform so that you can run your code on desktop computers (running either Windows, Linux or Mac) but also on mobile devices running Android. It is based on libGDX but provides a much simpler interface and multiple demo programs to get started.
@@ -87,7 +87,7 @@ public class DemoSimpleAnimation extends PortableApplication {
 {% endhighlight %}
 
 ## Who did this and why?
-It was developed for the [inf1 course](http://inf1.begincoding.net) taught at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. The list of contributors is [available here](https://github.com/hevs-isi/gdx2d/graphs/contributors).
+It was developed for the [inf1 course](http://inf1.begincoding.net) taught at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. The list of contributors is [available here](https://github.com/ISC-HEI/gdx2d/graphs/contributors).
 
 ## License
 The gdx2d project is licensed under the [Apache 2.0 license](https://github.com/hevs-isi/gdx2d/blob/master/LICENSE).

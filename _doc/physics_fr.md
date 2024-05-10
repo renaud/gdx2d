@@ -39,6 +39,8 @@ L’application `DemoSimplePhysics`, présentée dans la figure ci-dessus, utili
 
 Pour cette application, la méthode de dessin est la suivante :
 
+{% tabs physics %}
+{% tab physics java %}
 {% highlight java %}
 @Override
 public void onGraphicRender(GdxGraphics g) {
@@ -51,14 +53,34 @@ public void onGraphicRender(GdxGraphics g) {
     g.drawFPS();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab physics scala %}
+{% highlight scala %}
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear()
+
+    debugRenderer.render(world, g.getCamera.combined)
+    PhysicsWorld.updatePhysics()
+
+    g.drawSchoolLogoUpperRight()
+    g.drawFPS()
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 Elle consiste à faire le rendu du monde physique à l’aide de la classe `DebugRenderer`, puis de recalculer la position des objets du monde en utilisant la méthode `updatePhysics`.
 
 ## Dessin des objets physiques avec textures
 La classe `DebugRenderer` permet de dessiner le contour des objets physiques automatiquement. Il est possible d’ajouter une texture à ces objets en dessinant périodiquement une image à la position actuelle des objets. Pour ce faire, les objets du monde doivent être sauvegardés dans une liste, comme le montre l’exemple suivant :
 
+
+{% tabs texture %}
+{% tab texture java %}
 {% highlight java %}
-// List of physics objets available in the world
+// List of physics objects available in the world
 LinkedList<AbstractPhysicsObject> list = new LinkedList<AbstractPhysicsObject>();
 BitmapImage img;
 
@@ -90,6 +112,43 @@ public void onGraphicRender(GdxGraphics g) {
    PhysicsWorld.updatePhysics();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab texture scala %}
+{% highlight scala %}
+// List of physics objects available in the world
+var list: ArrayBuffer[AbstractPhysicsObject] = ArrayBuffer.empty
+var img: BitmapImage = _
+
+override def onInit(): Unit = {
+  img = new BitmapImage("data/images/soccer.png") // Load the circle texture
+
+  // Create and add circles to the world
+  list += new PhysicsCircle(null, new Vector2(250, 500), 30)
+  list += new PhysicsCircle(null, new Vector2(150, 500), 40)
+}
+
+override def onGraphicRender(g: GdxGraphics): Unit = {
+  g.clear()
+
+  // No longer required
+  // debugRenderer.render(world, g.getCamera.combined)
+
+  // Draw every body in the world
+  for (c <- list) {
+    val radius = c.getBodyRadius
+    val pos = c.getBodyPosition
+    g.drawTransformedPicture(pos.x, pos.y, c.getBodyAngleDeg(), radius, radius, img)
+    c.setBodyAwake(true)
+  }
+
+  PhysicsWorld.updatePhysics()
+}
+
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 Ainsi, il n’est plus nécessaire de dessiner le `DebugRenderer`.
 
@@ -99,6 +158,8 @@ lorsque ces derniers sont en dehors de la fenêtre) à l’aide de la méthode `
 
 Pour ce faire, le code suivant peut être utilisé :
 
+{% tabs destruction %}
+{% tab destruction java %}
 {% highlight java %}
 List<PhysicsBall> balls = new LinkedList<PhysicsBall>();
 // balls.add(new PhysicsBall(...));
@@ -125,10 +186,44 @@ public void onGraphicRender(GdxGraphics g) {
     PhysicsWorld.updatePhysics();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab destruction scala %}
+{% highlight scala %}
+val balls: ArrayBuffer[PhysicsBall] = ArrayBuffer.empty
+balls += new PhysicsBall(...)
+
+override def onGraphicRender(g: GdxGraphics): Unit = {
+  g.clear(Color.LIGHT_GRAY)
+
+  // Draws the balls
+  for (i <- 0 until balls.length) {
+    val ball = balls(i)
+    ball.draw(g)
+
+    val p = ball.getBodyPosition()
+
+    // If a ball is not visible anymore, it should be destroyed
+    if (p.y > height || p.y < 0 || p.x > width || p.x < 0) {
+      ball.destroy() // Mark the ball for deletion when possible
+      balls.remove(i) // Remove the ball from the collection as well
+    }
+  }
+
+  g.drawString(5, 30, "#Obj: " + world.getBodyCount())
+  PhysicsWorld.updatePhysics()
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 ## Groupes de collisions
 Des groupes de collisions peuvent être mis en place afin d’activer ou désactiver les collisions entre des objets physiques de même type. Pour ce faire, la méthode `setCollisionGroup` est disponible pour tous les `AbstractPhysicsObject` :
 
+
+{% tabs collisions %}
+{% tab collisions java %}
 {% highlight java %}
 PhysicsCircle b = new PhysicsCircle(null, new Vector2(x, y), 30);
 b.setCollisionGroup(-2);
@@ -136,5 +231,18 @@ b.setCollisionGroup(-2);
 PhysicsBox box = new PhysicsBox(null, new Vector2(x, y), 30, 30);
 box.setCollisionGroup(1);
 {% endhighlight %}
+{% endtab %}
+
+{% tab collisions scala %}
+{% highlight scala %}
+var b: PhysicsCircle = new PhysicsCircle(null, new Vector2(x, y), 30)
+b.setCollisionGroup(-2)
+
+var box: PhysicsBox = new PhysicsBox(null, new Vector2(x, y), 30, 30)
+box.setCollisionGroup(1)
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 Un identifiant négatif permet de désactiver les collisions entre les objets du même type. Dans cet exemple, les collisions entre les cercles sont désactivées. Toutes les autres collisions (box contre box et box contre cercles) restent actives.

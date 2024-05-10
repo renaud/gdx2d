@@ -4,9 +4,12 @@ markdown:         kramdown
 kramdown:
   syntax_highlighter: rouge
 
-gems:
-  - jemoji
+# gems:
+  # - jemoji
 
+plugins:
+  - jemoji
+  - jekyll-tabs
 
 permalink: news/:title/
 
@@ -19,11 +22,13 @@ collections:
     output: true
     permalink: doc/:path/
 
+
+
 # Setup
 title:            GDX2D
 tagline:          'A gaming library'
 description:      'A gaming library for the <a href="http://inf1.begincoding.net" title="INF1" target="_blank">INF1 course</a>.'
-url:              https://hevs-isi.github.io/gdx2d/
+url:              https://isc-hei.github.io/gdx2d/
 baseurl:          /gdx2d
 
 author:
@@ -36,4 +41,4 @@ author:
 # The download link is '{{ site.github.repo }}archive/v{{ site.github.latestversion }}.zip'
 github:
   latestversion: 1.2.2
-  repo:          https://github.com/hevs-isi/gdx2d/
+  repo:          https://github.com/ISC-HEI/gdx2d/

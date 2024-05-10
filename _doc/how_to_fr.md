@@ -19,6 +19,9 @@ Voici quelques exemples d’applications développées à l’aide de *Gdx2d*. D
 
 Les applications développées pour *Gdx2d* doivent hériter de la classe `PortableApplication`. Le code ci-dessous présente une application de démonstration basique :
 
+{% tabs helloworld %}
+
+{% tab helloworld java %}
 {% highlight java %}
 package hevs.gdx2d.demos.simple;
 
@@ -79,6 +82,62 @@ public class DemoSimpleAnimation extends PortableApplication {
     }
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab helloworld scala %}
+{% highlight scala %}
+
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
+import ch.hevs.gdx2d.lib.GdxGraphics
+import ch.hevs.gdx2d.desktop.PortableApplication
+
+/**
+ * A very simple demonstration on how to display something animated with the library
+ *
+ * @author Pierre-André Mudry (mui)
+ * @author Steve Devènes (dst)
+ * @version 1.0
+ */
+class DemoSimpleAnimation() extends PortableApplication {
+  var radius = 5
+  var speed = 1
+  var screenHeight, screenWidth = 0
+
+  override def onInit(): Unit = {
+    // Sets the window title
+    setTitle("Simple demo, mui 2013")
+
+    screenHeight = Gdx.graphics.getHeight
+    screenWidth = Gdx.graphics.getWidth
+  }
+
+  override def onGraphicRender(g: GdxGraphics): Unit = {
+    // Clears the screen
+    g.clear()
+    g.drawAntiAliasedCircle(screenWidth / 2, screenHeight / 2, radius, Color.BLUE)
+
+    // If reaching max or min size, invert the growing direction
+    if (radius >= 100 || radius <= 3) {
+      speed *= -1
+    }
+
+    // Modify the radius
+    radius += speed
+
+    g.drawSchoolLogo()
+  }
+}
+
+object DemoSimpleAnimation extends App{
+    new DemoSimpleAnimation()
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
+
+
 
 Le code ci-dessus correspond à l’application suivante :
 
@@ -117,6 +176,9 @@ Afin d’interagir avec les applications *Gdx2d*, différentes interfaces sont �
 
 La méthode onGraphicRender est appelée périodiquement (60 fois par seconde) afin de mettre à jour le rendu (le dessin) de l’application. La scène doit d’abord être effacée, puis les objets qui composent l’application doivent être dessinés les uns après les autres, en sachant que les objets dessinés en dernier peuvent recouvrir les objets précédemment dessinés.
 
+{% tabs drawing %}
+
+{% tab drawing java %}
 {% highlight java %}
 @Override
 public void onGraphicRender(GdxGraphics g) {
@@ -130,6 +192,24 @@ public void onGraphicRender(GdxGraphics g) {
     g.drawFPS();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab drawing scala %}
+{% highlight scala %}
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear(Color.BLACK)
+
+    g.setColor(Color.RED)
+
+    // TODO: add all drawing stuff here...
+
+    g.drawSchoolLogo()
+    g.drawFPS()
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 La classe `GdxGraphics` met à disposition un nombre varié de méthodes qui peuvent être utilisées pour afficher des images, dessiner des formes, afficher du texte, etc. La Javadoc de la classe `GdxGraphics` contient une description détaillée des méthodes disponibles.
 
@@ -139,6 +219,9 @@ Les classes `BitmapImage`, `FileHandle`, `MusicPlayer` et `Spritesheet` gèrent 
 
 ### Affichage d’une image
 
+{% tabs image %}
+
+{% tab image java %}
 {% highlight java %}
 BitmapImage imgBitmap;
 
@@ -153,9 +236,30 @@ public void onGraphicRender(GdxGraphics g) {
     g.drawPicture(getWindowWidth()/2, getWindowHeight()/2, imgBitmap); 
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab image scala %}
+{% highlight scala %}
+var imgBitmap: BitmapImage = _
+
+override def onInit(): Unit = {
+    imgBitmap = new BitmapImage("data/images/hei-pi.png")
+}
+
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear()
+    g.drawPicture(getWindowWidth() / 2, getWindowHeight() / 2, imgBitmap)
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 ### Ecriture d’un texte avec une police personnalisée
 
+{% tabs text %}
+
+{% tab text java %}
 {% highlight java %}
 BitmapFont optimus40;
 
@@ -182,9 +286,50 @@ public void onDispose() {
     optimus40.dispose();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab text scala %}
+{% highlight scala %}
+var optimus40: BitmapFont = _
+var optimus60: BitmapFont = _
+
+override def onInit(): Unit = {
+    val optimusF: FileHandle = Gdx.files.internal("data/font/OptimusPrinceps.ttf")
+
+    val generator: FreeTypeFontGenerator = new FreeTypeFontGenerator(optimusF)
+    val parameter: FreeTypeFontParameter = new FreeTypeFontParameter()
+
+    parameter.size = 40
+    optimus40 = generator.generateFont(parameter)
+    optimus40.setColor(Color.BLUE)
+    parameter.size = 60
+    optimus60 = generator.generateFont(parameter)
+    generator.dispose()
+}
+
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear()
+    g.drawStringCentered(50, "Optimus size 40", optimus40)
+    g.drawStringCentered(200, "Optimus size 60", optimus60)
+}
+
+override def onDispose(): Unit = {
+    optimus40.dispose()
+    optimus60.dispose()
+}
+
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
+<center>
+    <img alt="Custom font text example" src="{{ site.baseurl }}/assets/doc/font-text.png" width="300">
+</center>
 
 ### Utilisation d’un lecteur de musique
+{% tabs music %}
 
+{% tab music java %}
 {% highlight java %}
 MusicPlayer player;
 
@@ -201,9 +346,32 @@ public void onClick(int x, int y, int button) {
       player.loop();
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab music scala %}
+{% highlight scala %}
+var player: MusicPlayer = _
+
+override def onInit(): Unit = {
+    player = new MusicPlayer("data/music/Blues-Loop.mp3")
+}
+
+override def onClick(x: Int, y: Int, button: Int): Unit = {
+    if (player.isPlaying)
+        player.stop()
+    else
+        player.loop()
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 ### Spritesheet pour créer des animations
 
+{% tabs sprite %}
+
+{% tab sprite java %}
 {% highlight java %}
 Spritesheet sprites;
 @Override
@@ -217,6 +385,25 @@ public void onGraphicRender(GdxGraphics g) {
     g.spriteBatch.draw(sprites.sprites[1][1], 0, 0); // Draw a region
 }
 {% endhighlight %}
+{% endtab %}
+
+{% tab sprite scala %}
+{% highlight scala %}
+var sprites: Spritesheet = _
+
+override def onInit(): Unit = {
+    sprites = new Spritesheet("data/images/lumberjack_sheet.png", 64, 64)
+}
+
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear()
+    g.draw(sprites.sprites(1)(1), 0, 0)
+    g.draw(sprites.sprites(2)(1), 64, 0)
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
 
 Voici un exemple de texture qui peut être utilisé comme "spritesheet". La même image contient différentes régions de textures qui peuvent être sélectionnées lors du dessin.
 
@@ -228,6 +415,9 @@ Voici un exemple de texture qui peut être utilisé comme "spritesheet". La mêm
 
 L’exemple ci-dessous permet de capturer certains événements du clavier (`KeyboardInterface`) et de la souris (`TouchInterface`) :
 
+{% tabs interaction %}
+
+{% tab interaction java %}
 {% highlight java %}
 Vector2 mouse = new Vector2();
 boolean isMousPressed = false ;
@@ -290,3 +480,67 @@ public void onKeyUp(int keycode) {
     Logger.log(String.format("Key '%d' released", keycode));
 }
 {% endhighlight %}
+
+{% endtab %}
+
+{% tab interaction scala %}
+{% highlight scala %}
+import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.Input
+import ch.hevs.gdx2d.lib.utils.Logger
+
+...
+
+var mouse: Vector2 = new Vector2()
+var isMousePressed: Boolean = false
+
+override def onInit(): Unit = {}
+override def onGraphicRender(g: GdxGraphics): Unit = {
+    g.clear()
+}
+
+override def onClick(x: Int, y: Int, button: Int): Unit = {
+    super.onClick(x, y, button)
+
+    if (button == Input.Buttons.RIGHT) {
+        Logger.log("Right button clicked")
+        isMousePressed = true
+    }
+    else
+        Logger.log("Left button clicked")
+
+    mouse.set(x, y)
+}
+
+override def onDrag(x: Int, y: Int): Unit = {
+    super.onDrag(x, y)
+    mouse.set(x, y)
+}
+
+override def onRelease(x: Int, y: Int, button: Int): Unit = {
+    super.onRelease(x, y, button)
+    mouse.set(x, y)
+
+    if (button == Input.Buttons.RIGHT) {
+        isMousePressed = false
+        Logger.log("Right button released")
+    }
+}
+
+override def onKeyDown(keycode: Int): Unit = {
+    super.onKeyDown(keycode)
+
+    keycode match {
+        case Input.Keys.DOWN => Logger.log("Down key pressed")
+        case Input.Keys.UP => Logger.log("Up key pressed")
+        case _ => Logger.log(s"Key '$keycode' pressed")
+    }
+}
+
+override def onKeyUp(keycode: Int): Unit = {
+    Logger.log(s"Key '$keycode' released")
+}
+{% endhighlight %}
+{% endtab %}
+
+{% endtabs %}
