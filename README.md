@@ -31,12 +31,12 @@ It is multi-platform so that you can run your code on desktop computers (running
 Using the framework, the following code displays a shrinking/growing circle running smoothly:
 
 ```java
-package ch.hevs.gdx2d.demos.simple
+package hevs.gdx2d.demos.simple;
 
-import ch.hevs.gdx2d.desktop.PortableApplication
-import ch.hevs.gdx2d.lib.GdxGraphics
-import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.Gdx;
+import hevs.gdx2d.lib.GdxGraphics;
+import hevs.gdx2d.lib.PortableApplication;
+import com.badlogic.gdx.graphics.Color;
 
 /**
  * A very simple demonstration on how to display something animated with the
@@ -45,36 +45,40 @@ import com.badlogic.gdx.graphics.Color
  * @author Pierre-André Mudry (mui)
  * @version 1.0
  */
-class DemoSimpleAnimation : PortableApplication() {
-    var radius = 5f
-    var speed = 1f
+public class DemoSimpleAnimation extends PortableApplication {
+  int radius = 5, speed = 1;
+  int screenHeight, screenWidth;
 
-    override fun onInit() {
-        // Sets the window title
-        setTitle("Simple demo")
+  @Override
+  public void onInit() {
+    // Sets the window title
+    setTitle("Simple demo, mui 2013");
+
+    screenHeight = Gdx.graphics.getHeight();
+    screenWidth = Gdx.graphics.getWidth();
+  }
+
+  @Override
+  public void onGraphicRender(GdxGraphics g) {
+
+    // Clears the screen
+    g.clear();
+    g.drawAntiAliasedCircle(screenWidth / 2, screenHeight / 2, radius, Color.BLUE);
+
+    // If reaching max or min size, invert the growing direction
+    if (radius >= 100 || radius <= 3) {
+      speed *= -1;
     }
 
-    override fun onGraphicRender(g: GdxGraphics) {
+    // Modify the radius
+    radius += speed;
 
-        // Clears the screen
-        g.clear()
-        g.drawAntiAliasedCircle(g.screenWidth / 2f, g.screenHeight / 2f, radius, Color.BLUE)
+    g.drawSchoolLogo();
+  }
 
-        // If reaching max or min size, invert the growing direction
-        if (radius >= 100 || radius <= 3) {
-            speed *= -1
-        }
-
-        // Modify the radius
-        radius += speed
-
-        g.drawSchoolLogo()
-        g.drawFPS()
-    }
-}
-
-fun main(args: Array<String>) {
-  DemoSimpleAnimation()
+  public static void main(String[] args) {
+    new DemoSimpleAnimation();
+  }
 }
 ```
 
