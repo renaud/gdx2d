@@ -3,9 +3,8 @@
 The gdx2d project is a simple to use 2d game and graphics framework. It is multi-platform (working on Windows, Linux and MacOS). It is Java based with the heavy-lifting done in native code (i.e. C/C++), for example for physics rendering. Since 2022, the basic code also exists for Scala enthusiasts !
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=eoVrifa1Xd0" target="_blank"><img src="https://rawgit.com/ISC-HEI/gdx2d-videofile/master/logo/logo_640.png?raw=true" alt="Logo"/></a>
+  <a href="https://www.youtube.com/watch?v=eoVrifa1Xd0" target="_blank"><img src="https://rawgit.com/hevs-isi/gdx2d-videofile/master/logo/logo_640.png?raw=true" alt="Logo"/></a>
 </p>
-
 More information about gdx2d can be found on the [official project website](https://isc-hei.github.io/gdx2d/).
 
 For informations about how to use this repository and develop things in it, see CONTRIBUTING.md
