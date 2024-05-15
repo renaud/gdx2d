@@ -27,7 +27,7 @@ This is an open source project. Contributions via [pull request](https://github.
  
 ## Maven scripts modifications (pom.xml)
 
-If you do so, you will have to refresh intellij by : 
+If you do so, you will have to refresh _IntelliJ_ by : 
 
 - Opening the view/Tool Windows/Maven
 - Click on the 'Reimport All Maven Projects' button (the recycle icon)
@@ -41,49 +41,3 @@ If you work on the gdx2d code, we require you to use the [Eclipse code formatter
 If you are using IntelliJ IDEA, [see this article](http://blog.jetbrains.com/idea/2014/01/intellij-idea-13-importing-code-formatter-settings-from-eclipse/) to import and use the Eclipse code formatter.
 
 Please do use tabs, no spaces! Encoding of files should be defaulted to UTF-8. An [editor configuration file](https://github.com/ISC-HEI/gdx2d/blob/master/.editorconfig) is also available.
-
-## Java -> Kotlin
-
-In intellij, you can right click on a java file and ask to translate it into Kotlin. It generally work well.
-
-Kotlin has a few noticeable characteristics : 
-
-- null safety (? ?: !! as?)
-- lateinit
-- No single line multiple declaration
-- No lateinit on non-nullable stuff (int, ...)
-- can't define a class attribute  'var miaou : Int'  without '= X'
-- No implicit conversions of numeric type (ex : no int to float, no Byte to Int), but you can do Float * Int
-- Code written outside a class (ex: main) will be stored as static elements of a 'FileName'Kt class
-- Things are public by default
-- Can restrict the visibility of something to the project via 'internal'
-- The main constructor arguments are defined in the bracket after the class name, and can also be class attributes
-- The constructor body is in the 'init' body
-- Secondary constructor with additional arguments can be defined via the 'constructor' keyword
-- Support functions arguments default value 
-- Type inference
-- inner body can be defined via run { ... }
-- == => value/equals
-- === => reference
-- Range operator '..', for (i in 1..5) { ... }
-- You can label loops to break from an inner loop to the outer one
-- Different bitwise operators (shl, shr, ushr, and, or, xor, inv)
-- static cast of basics numerical types is done via a function (x.toFloat, ...)
-- No more System.out.print
-- String interpolation "$x ${1}"
-- Each body of code return the value of its last statement (run { .. } if .. else ..
-- Pattern matching instead of switch case
-- Function arguments are immutable
-- Class are final by default, (can't be extended), unless they have the 'open' modifier
-
-
- 
-## Scala -> Kotlin
-
-In addition of the Java -> Kotlin changes : 
-
-- The class body can only contain attributes and functions
-- Function return type should be explicitely defined
-- Function can't return a anonymous class type
-- You can use the return keyword in a lambda to return from the lambda by using label
-- Can't have a class and a object defined with the same name
