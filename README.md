@@ -1,6 +1,6 @@
 # Welcome to gdx2d [![Build Status](https://travis-ci.org/ISC-HEI/gdx2d.svg?branch=master)](https://travis-ci.org/ISC-HEI/gdx2d) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/ch.hevs.gdx2d/gdx2d-core/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cch.hevs.gdx2d)
 
-The gdx2d project is a simple to use 2d game and graphics framework. It is multi-platform (working on Windows, Linux and MacOS). It is Java based with the heavy-lifting done in native code (i.e. C/C++), for example for physics rendering. Since 2022, the basic code also exists for Scala enthusiasts !
+The `gdx2d` libraryis a simple to use 2d game and graphics framework. It is multi-platform (working on Windows, Linux and MacOS). It is Java based with the heavy-lifting done in native code (i.e. C/C++), for example for physics rendering. Since 2022, the basic code also exists for Scala enthusiasts !
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=eoVrifa1Xd0" target="_blank"><img src="https://rawgit.com/hevs-isi/gdx2d-videofile/master/logo/logo_640.png?raw=true" alt="Logo"/></a>
@@ -10,7 +10,7 @@ More information about gdx2d can be found on the [official project website](http
 For informations about how to use this repository and develop things in it, see CONTRIBUTING.md
 
 ## What can it do?
-The library contains simple to use graphical primitives such as lines, circles, rectangles. In addition, there are methods to draw pictures, rotate them, scale them etc. Physics simulation is also supported (using Box2D) as well as music and sound playing.
+The library contains simple to use graphical primitives such as lines, circles, rectangles. In addition, there are methods to draw pictures, rotate them, scale them etc. Physics simulation is also supported (using `Box2D`) as well as music and sound playing.
 
 For each feature, a Java demo is provided for simple integration. Here are some examples of what the library is capable of (you can check the [YouTube demo reel](https://www.youtube.com/watch?v=eoVrifa1Xd0)):
 
