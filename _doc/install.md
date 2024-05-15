@@ -21,9 +21,6 @@ You can also [download](https://github.com/ISC-HEI/gdx2d/releases/download/v1.2.
 
 You have to start writing your project with the project `gdx2d-helloDesktop`. Enjoy !
 
-<center>
-    <img alt="Import existing projects in Eclipse" height="700" src="{{ site.baseurl }}/assets/doc/scala-imports.png">
-</center>
 {% endtab %}
 
 {% tab demo Eclipse %}
