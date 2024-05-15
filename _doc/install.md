@@ -16,14 +16,14 @@ You can also [download](https://github.com/ISC-HEI/gdx2d/releases/download/v1.2.
 ## Getting started with IntelliJ or Eclipse
 
 {% tabs demo %}
-{% tab demo Intellij %}
+{% tab demo Intellij (current) %}
 [Download](https://marcellus.begincoding.net/gdx2d/gdx2d-1.2.3-students.zip) and extract the `gdx2d-1.2.3-students.zip` file. There are two projects there : one for the demos with sample code and another to get started with a project. The demos project is written in Java, but you can easily convert them to Scala, as all the imports and methods are the same, you just have to adapt the syntax.
 
 You have to start writing your project with the project `gdx2d-helloDesktop`. Enjoy !
 
 {% endtab %}
 
-{% tab demo Eclipse %}
+{% tab demo Eclipse (legacy) %}
 [Download](https://github.com/ISC-HEI/gdx2d/releases/download/v1.2.2/gdx2d-1.2.2-students.zip) the `gdx2d-1.2.2-students.zip` file, then import the two projects in your Eclipse workspace (using the `File->Import...->Existing Projects into Workspace` menu in Eclipse then `Select archive file:`):
 
 <center>
