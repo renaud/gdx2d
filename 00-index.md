@@ -4,7 +4,7 @@ permalink: "index.html"
 title: Welcome 
 ---
 
-The gdx2d project is a simple to use 2d game and graphics framework. It is multi-platform (working on Windows, Linux and Android). It is Java based with the heavy-lifting done in native code (i.e. C/C++), for example for physics rendering. 
+The `gdx2d` project is a simple to use 2d game and graphics framework. It is multi-platform (working on Windows, Linux and MacOS). It is Java based with the heavy-lifting done in native code (i.e. C/C++), for example for physics rendering. Since 2022, the basic code also explicitly exists for `Scala` enthusiasts !
 
 <div style="text-align:center">
   <a href="https://www.youtube.com/watch?v=eoVrifa1Xd0" target="_blank">
@@ -13,7 +13,7 @@ The gdx2d project is a simple to use 2d game and graphics framework. It is multi
 </div>
 
 ## What can it do?
-The library contains simple to use graphical primitives such as lines, circles, rectangles. In addition, there are methods to draw pictures, rotate them, scale them etc. Physics simulation is also supported (using Box2D) as well as music and sound playing.
+The library contains simple to use graphical primitives such as lines, circles, rectangles. In addition, there are methods to draw pictures, rotate them, scale them etc. Physics simulation is also supported (using `Box2D`) as well as music and sound playing.
 
 For each feature, a Java demo is provided for simple integration. Here are some examples of what the library is capable of (you can check the [YouTube demo reel](https://www.youtube.com/watch?v=eoVrifa1Xd0)):
 
@@ -22,7 +22,7 @@ For each feature, a Java demo is provided for simple integration. Here are some 
 </div>
 
 ## Why has this framework been developed?
-The advantage of using gdx2d is that you can develop your code in Java on your standard desktop computer like any other Java application and then deploy the same code, with a single click, on an Android phone or tablet. Of course, you have to take into consideration the fact that some of your code is a bit different for Android (for instance, you do not have accelerometers on your PC). 
+The advantage of using `gdx2d` is that you can develop your code in Java on your standard desktop computer like any other Java application and then deploy the same code, with a single click, on an Android phone or tablet. Of course, you have to take into consideration the fact that some of your code is a bit different for Android (for instance, you do not have accelerometers on your PC). 
 
 The library itself is a wrapper around a very nice library called [libGDX](https://libgdx.badlogicgames.com/) which provides almost everything to the library. The current project version is based on libGDX version `1.5.6`.
 
@@ -143,8 +143,12 @@ object DemoSimpleAnimation extends App{
 {% endtab %}
 
 {% endtabs %}
+
 ## Who did this and why?
-It was developed for the [inf1 course](http://inf1.begincoding.net) taught at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. The list of contributors is [available here](https://github.com/ISC-HEI/gdx2d/graphs/contributors).
+
+It was first developed for the [inf1 course](http://inf1.begincoding.net) given at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. It has then been adapted for the [_101 Fundamentals of programming 1_](https://isc.hevs.ch/learn/enrol/index.php?id=2) course of [ISC bachelor degree programme](https://www.hevs.ch/isc). 
+
+The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. Some work also has then been done by M. Pignat, C. Papon and S. Devènes. A full list of contributors is [available here](https://github.com/ISC-HEI/gdx2d/graphs/contributors).
 
 ## License
 The gdx2d project is licensed under the [Apache 2.0 license](https://github.com/hevs-isi/gdx2d/blob/master/LICENSE).
