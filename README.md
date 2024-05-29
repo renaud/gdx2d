@@ -20,7 +20,7 @@ For each feature, a Java demo is provided for simple integration. Here are some 
 ## Why has this framework been developed?
 The advantage of using gdx2d is that you can develop your code in Java on your standard desktop computer like any other Java application and then deploy the same code, with a single click, on an Android phone or tablet. Of course, you have to take into consideration the fact that some of your code is a bit different for Android (for instance, you don't have accelerometers on your PC). 
 
-The library itself is a wrapper around a very nice library called [libGDX](https://libgdx.badlogicgames.com/) which provides almost everything to the library. The current project version is based on libGDX version `1.5.6`.
+The library itself is a wrapper around a very nice library called [libGDX](https://libgdx.com/) which provides almost everything to the library. The current project version is based on libGDX version `1.5.6`.
 
 ## Documentation
 The Javadoc API of this library can be found [here](https://hevs-isi.github.io/gdx2d/javadoc/). More information about the project can be found on the [official website](https://hevs-isi.github.io/gdx2d/).
@@ -81,7 +81,7 @@ fun main(args: Array<String>) {
 ## Who did this and why?
 It was first developed for the [inf1 course](http://inf1.begincoding.net) taught at [HES-SO Valais / Systems engineering](http://hevs.ch/isi) by Pierre-André Mudry. It has then been adapted for the [_101 Fundamentals of programming 1_](https://isc.hevs.ch/learn/enrol/index.php?id=2) course of [ISC bachelor degree programme](https://www.hevs.ch/isc). 
 
-The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. Some work has then been done by M. Pignat et C. Papon. A full list of contributors is [available here](https://github.com/hevs-isi/gdx2d/graphs/contributors).
+The framework was written by P.-A. Mudry & N. Chatton with the help of C. Métrailler. Some work has then been done by M. Pignat et C. Papon. A full list of contributors is [available here](https://github.com/ISC-HEI/gdx2d/graphs/contributors).
 
 ## License
-The gdx2d project is licensed under the [Apache 2.0 license](https://github.com/hevs-isi/gdx2d/blob/master/LICENSE).
+The gdx2d project is licensed under the [Apache 2.0 license](https://github.com/ISC-HEI/gdx2d/blob/master/LICENSE).
